@@ -1,0 +1,44 @@
+<%= form_for(@tweet, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @tweet.errors.any? %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@tweet.errors.count, "error") %> prohibited this tweet from being saved:</h4>
+
+      <ul>
+      <% @tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :date, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :date, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :user, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :user, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :body, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :body, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :link, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :link, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
